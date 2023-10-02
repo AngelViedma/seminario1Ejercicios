@@ -43,6 +43,6 @@ fun ejercicio5(texto:String):Int{
 fun ejercicio6(texto:String,subcadena:String){
     var comprobar_text=texto.split(" ")
     for(i in 0 until comprobar_text.size){
-        if(comprobar_text[i])
+        if(comprobar_text[i]==subcadena)
     }
 }

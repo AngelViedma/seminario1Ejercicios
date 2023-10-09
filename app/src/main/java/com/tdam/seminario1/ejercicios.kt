@@ -2,11 +2,12 @@ package com.tdam.seminario1
 
 fun main(){
     var numeros= listOf(1,2,3,4,5)
+    println(ejercicio1(numeros))
     println(ejercicio2(numeros))
     println(ejercicio3(5))
     println(ejercicio4("olo"))
-    println(ejercicio5("Holaaaaa"))
-    ejercicio5("Hola")
+    println(ejercicio5("Holaaaaa",'a'))
+    ejercicio6("Hola me llamo pepe","23 me llamo")
 }
 
 fun ejercicio1(lista: List<Int>):Int{
@@ -35,14 +36,23 @@ fun ejercicio4(palabra:String):Boolean{
     return palabra.equals(palabra.reversed())
 }
 
-fun ejercicio5(texto:String):Int{
-    var cadena=texto.slice(1..2)
-
+fun ejercicio5(texto:String,cadena:Char):Int{
+    var contador=0
+    for(i in texto){
+        if(i==cadena){
+            contador++
+        }
+    }
+    return contador
 }
 
-fun ejercicio6(texto:String,subcadena:String){
-    var comprobar_text=texto.split(" ")
-    for(i in 0 until comprobar_text.size){
-        if(comprobar_text[i]==subcadena)
+fun ejercicio6(texto:String, subcadena:String) {
+    var textoSplit=texto.split("")
+    var contador = 0
+    for (palabra in textoSplit) {
+        if (subcadena == palabra) {
+            contador++
+        }
+        println("La subcadena aparece $contador veces")
     }
 }

@@ -8,6 +8,7 @@ fun main(){
     println(ejercicio4("olo"))
     println(ejercicio5("Holaaaaa",'a'))
     ejercicio6("Hola me llamo pepe","23 me llamo")
+    ejercicio7("hola me llamo angel")
 }
 
 fun ejercicio1(lista: List<Int>):Int{
@@ -47,12 +48,18 @@ fun ejercicio5(texto:String,cadena:Char):Int{
 }
 
 fun ejercicio6(texto:String, subcadena:String) {
-    var textoSplit=texto.split("")
-    var contador = 0
-    for (palabra in textoSplit) {
-        if (subcadena == palabra) {
-            contador++
-        }
-        println("La subcadena aparece $contador veces")
+    var textoSplit = texto.split(subcadena)
+
+   println( textoSplit.size-1)
+}
+
+fun ejercicio7(texto:String){
+    var textoSplit=texto.split(" ")
+
+    var textoNuevo=""
+    for (i in 0 until textoSplit.size){
+
+      textoNuevo+=textoSplit[i].capitalize()+" "
     }
+    println(textoNuevo)
 }

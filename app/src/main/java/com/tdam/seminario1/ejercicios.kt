@@ -16,6 +16,10 @@ fun main(){
     println(ejercicio10(4))
     ejercicio11(6,35)
     println(ejercicio12(101))
+    ejercicio13("a")
+    ejercicio13("div.coche#VWPolo")
+    ejercicio13("div.oferta")
+    ejercicio14(6)
 }
 
 fun ejercicio1(lista: List<Int>):Int{
@@ -115,13 +119,29 @@ fun ejercicio12(numero: Int): Boolean {
 }
 
 fun ejercicio13(cadena:String){
+    var cadenaSplit=cadena.split("div.","#")
 
-    if(cadena.equals("a")){
-        println("<a></a>")
-
-    }else if (cadena.equals()){
-
+    if(cadenaSplit.size==1){
+        println("<a><a/>")
+    }else if(cadenaSplit.size==2){
+        var etiqueta=cadenaSplit[1]
+        println("<div class=“$etiqueta”></div>")
+    }else if(cadenaSplit.size==3){
+        var etiqueta_div=cadenaSplit[1]
+        var etiqueta_id=cadenaSplit[2]
+        println("<div class=“$etiqueta_div” id=“$etiqueta_id”></div>")
     }
 }
 
+fun ejercicio14(num:Int){
+    for (i in 0 until num+1){
+        for(j in 0 until i){
+            print(i)
+        }
+        println("")
+    }
+}
 
+fun ejercicio15(array1:Array<Int>,array2:Array<Int>){
+
+}

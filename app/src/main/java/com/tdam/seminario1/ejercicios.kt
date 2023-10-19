@@ -1,7 +1,10 @@
 package com.tdam.seminario1
 
+import java.util.Locale
+
 fun main(){
-    var numeros= listOf(1,2,3,4,5)
+    val numeros= listOf(1,2,3,4,5)
+
     println(ejercicio1(numeros))
     println(ejercicio2(numeros))
     println(ejercicio3(5))
@@ -16,10 +19,18 @@ fun main(){
     println(ejercicio10(4))
     ejercicio11(6,35)
     println(ejercicio12(101))
-    ejercicio13("a")
-    ejercicio13("div.coche#VWPolo")
-    ejercicio13("div.oferta")
+    ejercicio13("p")
+    ejercicio13("p.coche#VWPolo")
+    ejercicio13("p.oferta")
     ejercicio14(6)
+    val num1= arrayOf(1,2,3,4,5)
+    val num2= arrayOf(1,1,2,4,3)
+    println(ejercicio15(num1,num2))
+    println(ejercicio20(5))
+    println(ejercicio21("Hola"))
+    println(ejercicio22(28))
+
+
 }
 
 fun ejercicio1(lista: List<Int>):Int{
@@ -70,7 +81,7 @@ fun ejercicio7(texto:String){
     var textoNuevo=""
     for (i in 0 until textoSplit.size){
 
-      textoNuevo+=textoSplit[i].capitalize()+" "
+      textoNuevo+= textoSplit[i].replaceFirstChar { if (it.isLowerCase()) it.titlecase(Locale.getDefault()) else it.toString() } +" "
     }
     println(textoNuevo)
 }
@@ -119,17 +130,18 @@ fun ejercicio12(numero: Int): Boolean {
 }
 
 fun ejercicio13(cadena:String){
-    var cadenaSplit=cadena.split("div.","#")
 
+    var cadenaSplit=cadena.split(".","#")
+    var etiqueta0=cadenaSplit[0]
     if(cadenaSplit.size==1){
-        println("<a><a/>")
+        println("<$etiqueta0><$etiqueta0/>")
     }else if(cadenaSplit.size==2){
         var etiqueta=cadenaSplit[1]
-        println("<div class=“$etiqueta”></div>")
+        println("<$etiqueta0 class=“$etiqueta”></$etiqueta0>")
     }else if(cadenaSplit.size==3){
         var etiqueta_div=cadenaSplit[1]
         var etiqueta_id=cadenaSplit[2]
-        println("<div class=“$etiqueta_div” id=“$etiqueta_id”></div>")
+        println("<$etiqueta0 class=“$etiqueta_div” id=“$etiqueta_id”></$etiqueta0>")
     }
 }
 
@@ -142,6 +154,39 @@ fun ejercicio14(num:Int){
     }
 }
 
-fun ejercicio15(array1:Array<Int>,array2:Array<Int>){
+fun ejercicio15(array1:Array<Int>,array2:Array<Int>):List<Boolean>{
+    val comprobar = BooleanArray(array1.size)
 
+    if(array1.size==array2.size){
+        for (i in array1.indices){
+            comprobar[i] = array1[i]==array2[i]
+        }
+
+    }else{
+        println("los arrays no tienen el mismo tamaño")
+    }
+    return comprobar.toList()
 }
+
+fun ejercicio20(num:Int):Int{
+    var multi=num
+    for(n in 1 until num){
+        multi*=n
+    }
+    return multi
+}
+
+fun ejercicio21(cadena:String):String{
+    return cadena.reversed()
+}
+
+fun ejercicio22(numero:Int):Boolean{
+    return false
+}
+
+
+
+
+
+
+

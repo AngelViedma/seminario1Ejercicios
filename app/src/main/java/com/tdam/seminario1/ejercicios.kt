@@ -2,47 +2,93 @@ package com.tdam.seminario1
 
 import java.util.Locale
 import kotlin.math.max
+import kotlin.system.exitProcess
 
 fun main(){
     val numeros= listOf(1,2,3,4,5)
-
+    println("//////////////////////EJERCICIO 1///////////////////////")
     println(ejercicio1(numeros))
+    println("//////////////////////EJERCICIO 2///////////////////////")
     println(ejercicio2(numeros))
+    println("//////////////////////EJERCICIO 3///////////////////////")
     println(ejercicio3(5))
+    println("//////////////////////EJERCICIO 4///////////////////////")
     println(ejercicio4("olo"))
+    println("//////////////////////EJERCICIO 5///////////////////////")
     println(ejercicio5("Holaaaaa",'a'))
+    println("//////////////////////EJERCICIO 6///////////////////////")
     ejercicio6("Hola me llamo pepe","23 me llamo")
+    println("//////////////////////EJERCICIO 7///////////////////////")
     ejercicio7("hola me llamo angel")
+    println("//////////////////////EJERCICIO 8///////////////////////")
     ejercicio8(123)
+    println("//////////////////////EJERCICIO 9///////////////////////")
     print("El maximo comun divisor es: ")
     println(ejercicio9(5,10))
+    println("//////////////////////EJERCICIO 10///////////////////////")
     print("La sucession de Fibonnaci es: ")
     println(ejercicio10(4))
+    println("//////////////////////EJERCICIO 11///////////////////////")
     ejercicio11(6,35)
+    println("//////////////////////EJERCICIO 12///////////////////////")
     println(ejercicio12(101))
+    println("//////////////////////EJERCICIO 13///////////////////////")
     ejercicio13("a")
     ejercicio13("div.coche#VWPolo")
     ejercicio13("div.oferta")
+    println("//////////////////////EJERCICIO 14///////////////////////")
     ejercicio14(6)
+    println("//////////////////////EJERCICIO 15///////////////////////")
     val num1= arrayOf(1,2,3,4,5)
     val num2= arrayOf(1,1,2,4,3)
     println(ejercicio15(num1,num2))
+    println("//////////////////////EJERCICIO 16///////////////////////")
+    println(ejercicio16(numeros))
+    println("//////////////////////EJERCICIO 17///////////////////////")
+    println(ejercicio17(numeros))
+    println("//////////////////////EJERCICIO 18///////////////////////")
+    println(ejercicio18(5))
+    println("//////////////////////EJERCICIO 19///////////////////////")
+    println(ejercicio19("Hola me llamo paco"))
+    println("//////////////////////EJERCICIO 20///////////////////////")
     println(ejercicio20(5))
+    println("//////////////////////EJERCICIO 21///////////////////////")
     println(ejercicio21("Hola"))
+    println("//////////////////////EJERCICIO 22///////////////////////")
     println(ejercicio22(28))
+    println("//////////////////////EJERCICIO 23///////////////////////")
     println(ejercicio23(371,3))
     val matriz = arrayOf(
         arrayOf(12,2,3,4),
         arrayOf(1,6,80,8),
         arrayOf(9,10,11,12)
     )
+    println("//////////////////////EJERCICIO 24///////////////////////")
     println(ejercicio24(matriz))
+    println("//////////////////////EJERCICIO 25///////////////////////")
     println(ejercicio25(matriz))
-    val listaStrings = listOf("hola","palabra","palabraMasLarga","xd")
-    println(ejercicio26(listaStrings))
-    println(ejercicio27(listaStrings))
-    println(ejercicio28("Hola9"))
 
+    val listaStrings = listOf("hola","palabra","palabraMasLarga","xd")
+
+    println("//////////////////////EJERCICIO 26///////////////////////")
+    println(ejercicio26(listaStrings))
+    println("//////////////////////EJERCICIO 27///////////////////////")
+    println(ejercicio27(listaStrings))
+    println("//////////////////////EJERCICIO 28///////////////////////")
+    println(ejercicio28("Hola1"))
+    println("//////////////////////EJERCICIO 29///////////////////////")
+
+    println("//////////////////////EJERCICIO 30///////////////////////")
+
+    println("//////////////////////EJERCICIO 31///////////////////////")
+
+    println("//////////////////////EJERCICIO 32///////////////////////")
+
+    println("//////////////////////EJERCICIO 33///////////////////////")
+
+    println("//////////////////////EJERCICIO 34///////////////////////")
+
+    println("//////////////////////EJERCICIO 35///////////////////////")
 }
 
 fun ejercicio1(lista: List<Int>):Int{
@@ -180,6 +226,49 @@ fun ejercicio15(array1:Array<Int>,array2:Array<Int>):List<Boolean>{
     return comprobar.toList()
 }
 
+fun ejercicio16(numeros:List<Int>):Int{
+    var producto=1
+    for(num in numeros){
+        producto*=num
+    }
+    return producto
+}
+
+fun ejercicio17(numeros:List<Int>):List<Int>{
+    var listaPar= mutableListOf<Int>()
+    for(num in numeros){
+        if(num%2==0){
+            listaPar.add(num)
+        }
+    }
+    return listaPar
+}
+
+fun ejercicio18(numero:Int):Boolean{
+    if(numero<=1){
+        return false
+    }
+
+    for(i in 2 until numero){
+        if(numero%2==0){
+            return false
+        }
+    }
+    return true
+}
+
+fun ejercicio19(cadena:String):String{
+    val vocales="AEIOUaeiou"
+    val builder = StringBuilder()
+
+    for(vocal in cadena){
+        if(vocal !in vocales){
+            builder.append(vocal)
+        }
+    }
+    return builder.toString()
+}
+
 fun ejercicio20(num:Int):Int{
     var multi=num
     for(n in 1 until num){
@@ -256,13 +345,21 @@ fun ejercicio27(palabra:List<String>):String{
 }
 
 fun ejercicio28(cadena:String):Boolean{
-    var regex = """/^[0-9\s]*$/"""
-    return cadena.contains(regex)
+    val comprobacion=" 1234567890"
+    var test=true
 
-//    var aux = regex.toRegex().find(cadena)
-//
-//   // if(aux) return true
-//    return false
+    for(i in cadena){
+        if(i in comprobacion){
+            test=false
+            break
+        }else{
+            test = true
+        }
+    }
+    return test
+}
+
+fun ejercicio29(){
 
 }
 

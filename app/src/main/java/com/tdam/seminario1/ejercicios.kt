@@ -82,10 +82,14 @@ fun main(){
 
     println(ejercicio29(string1,string2))
     println("//////////////////////EJERCICIO 30///////////////////////")
-
+    println(ejercicio30(6))
     println("//////////////////////EJERCICIO 31///////////////////////")
-
+    println(ejercicio31(numeros))
     println("//////////////////////EJERCICIO 32///////////////////////")
+
+    val lista1 = listOf("Fruta","Vehiculo","Material","Color")
+    val lista2 = listOf("Pera","Coche","Plastico","Rojo")
+    println(ejercicio32(lista1,lista2))
 
     println("//////////////////////EJERCICIO 33///////////////////////")
 
@@ -378,5 +382,42 @@ fun ejercicio29(cadena1:String,cadena2:String):Boolean{
 }
 
 
+fun ejercicio30(numero:Int):Boolean{
+    var n = 1
+    var suma = 0
 
+    while (suma < numero) {
+        suma += n
+        n++
+    }
+    return suma == numero
+}
+
+fun ejercicio31(lista:List<Int>):List<Int>{
+    //se usa map para modificar una lista con el it
+    return lista.map { it*2 }
+}
+
+fun ejercicio32(claves:List<String>,valores:List<String>):Map<String,String>{
+    //requiere sirve para crear una condicion y si no se cumple salga con una excepcion
+    require(claves.size==valores.size){"Las listas no tienen el mismo tamaño!"}
+
+    //metodo zip
+    //añade claves y valores en una lista con zip
+    //var union = claves.zip(valores)
+    //pasamos la lista a Map
+    //var diccionario = union.toMap()
+    //return diccionario
+
+    //a mi forma xd
+    var diccionario = mutableMapOf<String,String>()
+    for(i in claves.indices){
+        diccionario.put(claves[i],valores[i])
+    }
+    return diccionario
+}
+
+fun ejercicio33(){
+
+}
 

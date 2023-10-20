@@ -77,7 +77,10 @@ fun main(){
     println("//////////////////////EJERCICIO 28///////////////////////")
     println(ejercicio28("Hola1"))
     println("//////////////////////EJERCICIO 29///////////////////////")
+    val string1="hola peter"
+    val string2="retep hoal"
 
+    println(ejercicio29(string1,string2))
     println("//////////////////////EJERCICIO 30///////////////////////")
 
     println("//////////////////////EJERCICIO 31///////////////////////")
@@ -359,8 +362,19 @@ fun ejercicio28(cadena:String):Boolean{
     return test
 }
 
-fun ejercicio29(){
+fun ejercicio29(cadena1:String,cadena2:String):Boolean{
+    val str1=cadena1.replace(" ","").lowercase()
+    val str2=cadena2.replace(" ","").lowercase()
 
+    if(str1.length!=str2.length){
+        println("Las cadenas no tienen el mismo tamaño")
+        return false
+    }
+
+    val cadenaSorted1 = str1.toCharArray().sorted()
+    val cadenaSorted2 = str2.toCharArray().sorted()
+
+    return cadenaSorted1.containsAll(cadenaSorted2)
 }
 
 

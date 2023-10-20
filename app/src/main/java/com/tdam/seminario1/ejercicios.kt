@@ -2,7 +2,6 @@ package com.tdam.seminario1
 
 import java.util.Locale
 import kotlin.math.max
-import kotlin.system.exitProcess
 
 fun main(){
     val numeros= listOf(1,2,3,4,5)
@@ -110,7 +109,7 @@ fun ejercicio1(lista: List<Int>):Int{
 
 fun ejercicio2(lista: List<Int>):Int{
     var suma=0
-    for(i in 0 until lista.size){
+    for(i in lista){
         suma+=lista[i]
     }
     return suma
@@ -121,7 +120,7 @@ fun ejercicio3(millas:Int):Double{
 }
 
 fun ejercicio4(palabra:String):Boolean{
-    return palabra.equals(palabra.reversed())
+    return palabra==(palabra.reversed())
 }
 
 fun ejercicio5(texto:String,cadena:Char):Int{
@@ -135,34 +134,34 @@ fun ejercicio5(texto:String,cadena:Char):Int{
 }
 
 fun ejercicio6(texto:String, subcadena:String) {
-    var textoSplit = texto.split(subcadena)
+    val textoSplit = texto.split(subcadena)
 
    println( textoSplit.size-1)
 }
 
 fun ejercicio7(texto:String){
-    var textoSplit=texto.split(" ")
+    val textoSplit=texto.split(" ")
 
     var textoNuevo=""
-    for (i in 0 until textoSplit.size){
+    for (i in textoSplit){
 
-      textoNuevo+= textoSplit[i].replaceFirstChar { if (it.isLowerCase()) it.titlecase(Locale.getDefault()) else it.toString() } +" "
+      textoNuevo+= i.replaceFirstChar { if (it.isLowerCase()) it.titlecase(Locale.getDefault()) else it.toString() } +" "
     }
     println(textoNuevo)
 }
 
 fun ejercicio8(numero:Int){
-    var num_split=numero.toString().split("")
-    var num_list=num_split.toList()
+    val numSplit=numero.toString().split("")
+    val numList=numSplit.toList()
     var suma=0
-    for (num in 1 until num_list.size-1){
+    for (num in 1 until numList.size-1){
         suma+=num
     }
     println("La suma de $numero es: $suma")
 }
 
 fun ejercicio9(a: Int, b: Int): Int{
-    return Math.max(a,b)
+    return max(a,b)
 }
 
 fun ejercicio10(n: Int): Int {
@@ -196,17 +195,21 @@ fun ejercicio12(numero: Int): Boolean {
 
 fun ejercicio13(cadena:String){
 
-    var cadenaSplit=cadena.split(".","#")
-    var etiqueta0=cadenaSplit[0]
-    if(cadenaSplit.size==1){
-        println("<$etiqueta0><$etiqueta0/>")
-    }else if(cadenaSplit.size==2){
-        var etiqueta=cadenaSplit[1]
-        println("<$etiqueta0 class=“$etiqueta”></$etiqueta0>")
-    }else if(cadenaSplit.size==3){
-        var etiqueta_div=cadenaSplit[1]
-        var etiqueta_id=cadenaSplit[2]
-        println("<$etiqueta0 class=“$etiqueta_div” id=“$etiqueta_id”></$etiqueta0>")
+    val cadenaSplit=cadena.split(".","#")
+    val etiqueta0=cadenaSplit[0]
+    when (cadenaSplit.size) {
+        1 -> {
+            println("<$etiqueta0><$etiqueta0/>")
+        }
+        2 -> {
+            val etiqueta=cadenaSplit[1]
+            println("<$etiqueta0 class=“$etiqueta”></$etiqueta0>")
+        }
+        3 -> {
+            val etiquetaDiv=cadenaSplit[1]
+            val etiquetaId=cadenaSplit[2]
+            println("<$etiqueta0 class=“$etiquetaDiv” id=“$etiquetaId”></$etiqueta0>")
+        }
     }
 }
 
@@ -242,7 +245,7 @@ fun ejercicio16(numeros:List<Int>):Int{
 }
 
 fun ejercicio17(numeros:List<Int>):List<Int>{
-    var listaPar= mutableListOf<Int>()
+    val listaPar= mutableListOf<Int>()
     for(num in numeros){
         if(num%2==0){
             listaPar.add(num)
@@ -303,7 +306,7 @@ fun ejercicio22(numero:Int):Boolean{
 }
 //FALTA ARREGLAR LO DE LA POTENCIA
 fun ejercicio23(num:Int,potencia:Int):Boolean{
-    var numSplit=num.toString().split("")
+    val numSplit=num.toString().split("")
     var suma=0
     for(i in 1 until numSplit.size-1){
         suma+=numSplit[i].toInt()*potencia
@@ -410,9 +413,9 @@ fun ejercicio32(claves:List<String>,valores:List<String>):Map<String,String>{
     //return diccionario
 
     //a mi forma xd
-    var diccionario = mutableMapOf<String,String>()
+    val diccionario = mutableMapOf<String,String>()
     for(i in claves.indices){
-        diccionario.put(claves[i],valores[i])
+        diccionario[claves[i]] = valores[i]
     }
     return diccionario
 }

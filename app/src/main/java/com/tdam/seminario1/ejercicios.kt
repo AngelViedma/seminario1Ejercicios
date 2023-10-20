@@ -91,8 +91,11 @@ fun main(){
     println(ejercicio32(lista1,lista2))
 
     println("//////////////////////EJERCICIO 33///////////////////////")
-
-    println("//////////////////////EJERCICIO 34///////////////////////")
+    println(ejercicio33(5))
+    println("//////////////////////EJERCICIO 34 (encriptar y desencriptar)///////////////////////")
+    val cadenaencriptar="Esto es una cadena para encriptar"
+    println(ejercicio34encriptar(cadenaencriptar))
+    println(ejercicio34desencriptar(ejercicio34encriptar(cadenaencriptar)))
 
     println("//////////////////////EJERCICIO 35///////////////////////")
 }
@@ -109,7 +112,7 @@ fun ejercicio1(lista: List<Int>):Int{
 
 fun ejercicio2(lista: List<Int>):Int{
     var suma=0
-    for(i in lista){
+    for(i in 0 until lista.size){
         suma+=lista[i]
     }
     return suma
@@ -420,7 +423,66 @@ fun ejercicio32(claves:List<String>,valores:List<String>):Map<String,String>{
     return diccionario
 }
 
-fun ejercicio33(){
+fun ejercicio33(decimal:Int):String{
+    //este ejercicio entendia como se hace pero no me salia, he tenido que usar chatgpt xd
+    if(decimal == 0){
+        return "0"
+    }
+    var numero=decimal
+    var binario=""
 
+    while(numero>0){
+        val aux=numero%2
+        binario="$aux$binario"
+        numero/=2
+    }
+    return binario
 }
+
+fun ejercicio34encriptar(cadena:String):String{
+    var cadenaRev = cadena.reversed()
+    var encriptar = StringBuilder()
+    for(caracter in cadenaRev){
+        when(caracter){
+            'a' -> encriptar.append("1")
+            'e' -> encriptar.append("2")
+            'i' -> encriptar.append("3")
+            'o' -> encriptar.append("4")
+            'u' -> encriptar.append("5")
+            else -> encriptar.append(caracter)
+        }
+    }
+    return encriptar.toString()
+}
+fun ejercicio34desencriptar(cadena:String):String{
+    var desencriptar = StringBuilder()
+
+    for(caracter in cadena){
+        when(caracter){
+            '1' -> desencriptar.append("a")
+            '2' -> desencriptar.append("e")
+            '3' -> desencriptar.append("i")
+            '4' -> desencriptar.append("o")
+            '5' -> desencriptar.append("u")
+            else -> desencriptar.append(caracter)
+        }
+    }
+    return desencriptar.toString().reversed()
+}
+
+//fun ejercicio35(matriz:Array<Array<Int>>,criterio:String="ASC"){
+    //var aux=matriz[0][0]
+    //if(criterio.lowercase() == "asc"){
+    //    var orden = ">"
+    //}else{
+    //   var orden = "<"
+    //}
+
+    //   for(i in matriz){
+    //        for(j in i){
+    //            if(aux)
+    //        }
+    //    }
+
+//}
 
